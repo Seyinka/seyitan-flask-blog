@@ -1,10 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Index page</title>
-</head>
-<body>
-The hostname of the container is <b>{{ hostname }}</b> and its IP is <b>{{ ip }}</b>.
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Welcome to My Personal Blog</h2>
+<p>Hi, I’m Seyitan Oluwaseitan! </p>
+<p>I’m a cloud/DevOps engineer and a tech enthusiast. On this blog, I share:</p>
+<ul>
+    <li>My projects in cloud engineering, automation, and DevOps</li>
+    <li>Tips on deploying Dockerized applications</li>
+    <li>Insights from my learning journey in tech</li>
+</ul>
+<p>Feel free to explore my posts below:</p>
+<ul>
+    {% for post in posts %}
+    <li><a href="/post/{{ post.id }}">{{ post.title }}</a></li>
+    {% endfor %}
+</ul>
+{% endblock %}
